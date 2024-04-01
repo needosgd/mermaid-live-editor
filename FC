@@ -1,0 +1,14 @@
+graph LR
+A[Inquiry Received from Travel Agent] --> B{Travel Agent Information, Group Size & Route, Requested Dates, Proposed Fare};
+B --> C{Check Availability};
+C --> D{Fare Options & Sales Manager Approval};
+D --> E{Salesforce Application};
+E --> F{Revenue Management Response};
+F -->|Approved| G{Quote to Travel Agent (Approved Fare)};
+F -->|Negotiates| H{Negotiate with Revenue Management};
+H --> F;
+G --> I{Travel Agent Feedback};
+I -->|Accepts| J{Booking Confirmation};
+I -->|Negotiates| H;
+I -->|Declines| K{Group Closed - Lost};
+J --> L{Group Closed - Won};
